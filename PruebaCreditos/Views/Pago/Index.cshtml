@@ -1,0 +1,84 @@
+﻿@model PruebaCreditos.Modelos.ViewModels.CreditoViewModel
+
+<h4>Pagos</h4>
+<hr />
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>
+                Dividendo
+            </th>
+            <th>
+                Fecha Inicial
+            </th>
+            <th>
+                Fecha Vencimiento
+            </th>
+            <th>
+                Monto
+            </th>
+            <th>
+                Capital
+            </th>
+            <th>
+                Interes
+            </th>
+            <th>
+                Seguros
+            </th>
+            <th>
+                Cuota Pagar
+            </th>
+            <th>
+                Estado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.PagarCuota.Dividendo.
+            </td>
+            <td>
+                @Model.PagarCuota.FechaInicial
+            </td>
+            <td>
+                @Model.PagarCuota.FechaVencimiento
+            </td>
+            <td>
+                @Model.PagarCuota.Monto
+            </td>
+            <td>
+                @Model.PagarCuota.Capital
+            </td>
+            <td>
+                @Model.PagarCuota.Interes
+            </td>
+            <td>
+                @Model.PagarCuota.Seguros
+            </td>
+            <td>
+                @Model.PagarCuota.CuotaPagar
+            </td>
+            <td>
+                @Model.PagarCuota.Estado
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+<div>
+    <a asp-controller="Amortizacion" asp-action="Index" asp-route-id="@Model.PagarCuota.CreditoId">Regresar</a>
+</div>
+<div class="col-sm-12 col-lg-4 col-md-6 offset-lg-8 offset-md-6 ">
+    <a asp-controller="Pago" asp-action="Update" class="btn btn-success form-control" asp-all-route-data="@(new Dictionary<string, string> { { "to.Id", Model.PagarCuota.Id.ToString() },
+        { "to.Dividendo",Model.PagarCuota.Dividendo.ToString()},
+        { "to.FechaInicial",Model.PagarCuota.FechaInicial.ToString()},
+        { "to.FechaVencimiento",Model.PagarCuota.FechaVencimiento.ToString()},
+        { "to.CuotaPagar",Model.PagarCuota.CuotaPagar.ToString()},
+        { "to.Estado",Model.PagarCuota.Estado.ToString()},
+        { "to.CreditoId",Model.PagarCuota.CreditoId.ToString()}})">Pagar Valor</a>
+</div>

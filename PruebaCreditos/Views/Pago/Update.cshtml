@@ -1,0 +1,23 @@
+﻿
+@model PruebaCreditos.Modelos.ViewModels.CreditoViewModel
+
+@if (TempData["FechaIgual"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <h4>@TempData["FechaIgual"]</h4>
+    </div>
+}
+else
+{
+    @if (TempData["FechaDiferente"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4>@TempData["FechaDiferente"]</h4>
+        </div>
+    }
+}
+<div class="row">
+    <div class="col">
+        <a asp-controller="Amortizacion" asp-action="Index" asp-route-id="@Model.PagarCuota.CreditoId">Regresar</a>
+    </div>
+</div>

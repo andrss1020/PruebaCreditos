@@ -1,0 +1,88 @@
+﻿@model PruebaCreditos.Modelos.ViewModels.CreditoViewModel
+
+<h4>Amortización</h4>
+<hr />
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>
+                Dividendo
+            </th>
+            <th>
+                Fecha Inicial
+            </th>
+            <th>
+                Fecha Vencimiento
+            </th>
+            <th>
+                Monto
+            </th>
+            <th>
+                Capital
+            </th>
+            <th>
+                Interes
+            </th>
+            <th>
+                Seguros
+            </th>
+            <th>
+                Cuota Pagar
+            </th>
+            <th>
+                Estado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Amortizacion)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dividendo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaInicial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaVencimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capital)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Interes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seguros)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CuotaPagar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+    <div>
+        <a asp-controller="Pago" asp-action="Index" asp-all-route-data="@(new Dictionary<string, string> { { "to.Id", Model.PagarCuota.Id.ToString() },
+        { "to.Dividendo",Model.PagarCuota.Dividendo.ToString()},
+        { "to.FechaInicial",Model.PagarCuota.FechaInicial.ToString()},
+        { "to.FechaVencimiento",Model.PagarCuota.FechaVencimiento.ToString()},
+        { "to.Monto",Model.PagarCuota.Monto.ToString()},
+        { "to.Capital",Model.PagarCuota.Capital.ToString()},
+        { "to.Interes",Model.PagarCuota.Interes.ToString()},
+        { "to.Seguros",Model.PagarCuota.Seguros.ToString()},
+        { "to.CuotaPagar",Model.PagarCuota.CuotaPagar.ToString()},
+        { "to.Estado",Model.PagarCuota.Estado.ToString()},
+        { "to.CreditoId",Model.PagarCuota.CreditoId.ToString()}})">Pagar</a> |
+        <a asp-controller="Creditoes" asp-action="Index">Regresar</a>
+    </div>
+</table>

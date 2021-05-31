@@ -1,0 +1,55 @@
+﻿@model PruebaCreditos.Modelos.Credito
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Credito</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoCredito)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoCredito)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plazo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plazo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tasa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tasa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoAmortizacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoAmortizacion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Clientes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Clientes.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
