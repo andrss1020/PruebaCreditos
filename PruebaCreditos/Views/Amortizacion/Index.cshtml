@@ -33,41 +33,47 @@
             <th>
                 Estado
             </th>
+            <th>
+                Mora
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Amortizacion)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dividendo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaInicial)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaVencimiento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Monto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Capital)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Interes)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Seguros)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CuotaPagar)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Estado)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dividendo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaVencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seguros)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CuotaPagar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorMora)
+            </td>
+        </tr>
         }
     </tbody>
 

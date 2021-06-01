@@ -10,8 +10,8 @@ using PruebaCreditos.AccesoDatos.Data;
 namespace PruebaCreditos.AccesoDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210530181751_Migratio")]
-    partial class Migratio
+    [Migration("20210531232020_prueba5")]
+    partial class prueba5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -262,6 +262,9 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                         .HasColumnType("float");
 
                     b.Property<double>("Seguros")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorMora")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

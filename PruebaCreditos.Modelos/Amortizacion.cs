@@ -21,6 +21,7 @@ namespace PruebaCreditos.Modelos
         public double Seguros { get; set; }
         public double CuotaPagar { get; set; }
         public string Estado { get; set; }
+        public double ValorMora { get; set; }
         [Required]
         public int CreditoId { get; set; }
         [ForeignKey("CreditoId")]

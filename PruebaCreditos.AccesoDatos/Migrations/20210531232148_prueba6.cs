@@ -2,7 +2,7 @@
 
 namespace PruebaCreditos.AccesoDatos.Migrations
 {
-    public partial class AgregarPropiedadesAmortizacion : Migration
+    public partial class prueba6 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

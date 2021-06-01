@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PruebaCreditos.AccesoDatos.Migrations
 {
-    public partial class AgregarPropiedadesClientes : Migration
+    public partial class prueba5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -167,7 +167,7 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                     Plazo = table.Column<int>(type: "int", nullable: false),
                     Tasa = table.Column<double>(type: "float", nullable: false),
                     TipoAmortizacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ClientesId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ClientesId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -177,7 +177,7 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                         column: x => x.ClientesId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -194,6 +194,8 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                     Interes = table.Column<double>(type: "float", nullable: false),
                     Seguros = table.Column<double>(type: "float", nullable: false),
                     CuotaPagar = table.Column<double>(type: "float", nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValorMora = table.Column<double>(type: "float", nullable: false),
                     CreditoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

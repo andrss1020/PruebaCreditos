@@ -262,6 +262,9 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                     b.Property<double>("Seguros")
                         .HasColumnType("float");
 
+                    b.Property<double>("ValorMora")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CreditoId");

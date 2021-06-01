@@ -10,8 +10,8 @@ using PruebaCreditos.AccesoDatos.Data;
 namespace PruebaCreditos.AccesoDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210530031019_AgregarPropiedadesClientes")]
-    partial class AgregarPropiedadesClientes
+    [Migration("20210531232148_prueba6")]
+    partial class prueba6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -246,6 +246,9 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                     b.Property<int>("Dividendo")
                         .HasColumnType("int");
 
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("FechaInicial")
                         .HasColumnType("datetime2");
 
@@ -259,6 +262,9 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                         .HasColumnType("float");
 
                     b.Property<double>("Seguros")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorMora")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
@@ -276,6 +282,7 @@ namespace PruebaCreditos.AccesoDatos.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClientesId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Monto")
@@ -374,18 +381,24 @@ namespace PruebaCreditos.AccesoDatos.Migrations
 
             modelBuilder.Entity("PruebaCreditos.Modelos.Amortizacion", b =>
                 {
-                    b.HasOne("PruebaCreditos.Modelos.Credito", null)
+                    b.HasOne("PruebaCreditos.Modelos.Credito", "Credito")
                         .WithMany("Amortizacion")
                         .HasForeignKey("CreditoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Credito");
                 });
 
             modelBuilder.Entity("PruebaCreditos.Modelos.Credito", b =>
                 {
-                    b.HasOne("PruebaCreditos.Modelos.Clientes", null)
+                    b.HasOne("PruebaCreditos.Modelos.Clientes", "Clientes")
                         .WithMany("Credito")
-                        .HasForeignKey("ClientesId");
+                        .HasForeignKey("ClientesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Clientes");
                 });
 
             modelBuilder.Entity("PruebaCreditos.Modelos.Credito", b =>
